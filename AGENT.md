@@ -1,27 +1,14 @@
-# Agent Notes — Dad Joke Showdown
+# AGENT.md
 
-## What this entry is
+How this entry was built.
 
-A tiny Node 22 program for the make.fun Dad Joke Showdown bounty. When run,
-it writes exactly one dad joke — 107 characters — to `entry.txt` in the
-output directory, with no trailing newline.
-
-## How to run it locally
-
-```sh
-MAKEFUN_OUTPUT_DIR=/tmp/dad-joke-out node main.ts
-```
-
-If `MAKEFUN_OUTPUT_DIR` is not set, the program defaults to `/output`.
-
-## How to verify entry.txt
-
-1. Run the program as above, pointing it at a fresh empty directory.
-2. Read `entry.txt` in that directory and confirm it contains exactly:
-
-   `My son said he'd rather live in Vice City than visit me. I said, 'Funny - I feel the same way, vice versa.'`
-
-3. Check the size is 107 bytes, the character count is 107 (inside the
-   1–200 limit), the text is pure ASCII, and there is no trailing newline
-   at the end of the file. Run it a second time into a different fresh
-   directory and compare the two outputs byte for byte.
+1. **Candidates.** 14 dad-joke candidates were drafted for the Dad Joke Showdown bounty (one joke, max 200 chars).
+2. **Criteria scoring.** Each candidate was scored against the five judge criteria, in lexicographic priority:
+   (1) a dad joke a father would tell at the table, (2) the pun lands cleanly on first read,
+   (3) fresh, (4) tight with the punchline at the end, (5) reads naturally aloud.
+   The dishwasher/"plate my role" joke scored 24/25.
+3. **Ensemble pre-filter.** The top candidates were also run past an ensemble of 5 free models as a pre-filter. The winner was chosen from the combination of the two.
+4. **Build.** `main.ts` is a dependency-free Node TypeScript program that writes the joke, with no trailing newline, to `/output/entry.txt`. `MAKEFUN_OUTPUT_DIR` overrides the directory.
+   It was first written plain, then revised to add a guard (non-whitespace, 1-200 chars).
+5. **Verification.** Before and after the revision, two runs into fresh directories were byte-identical (sha256 `029dfb9cbf0a36706726057842e7dcd5763e04892012a9f280d08e4ba19b2d69`).
+   The output is 92 bytes with no trailing newline.
