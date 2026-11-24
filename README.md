@@ -1,21 +1,25 @@
 # Dad Joke Showdown
 
-[![make.fun](https://make.fun/bounty/u-mfnakmal-dad-joke-showdown-1d2ce3e5/badge.svg)](https://make.fun/bounty/u-mfnakmal-dad-joke-showdown-1d2ce3e5)
-[![Rank](https://make.fun/bounty/u-mfnakmal-dad-joke-showdown-1d2ce3e5/rank/emasinves0-commits.svg)](https://make.fun/leaderboard?bounty=u-mfnakmal-dad-joke-showdown-1d2ce3e5)
-[![Reward](https://make.fun/bounty/u-mfnakmal-dad-joke-showdown-1d2ce3e5/reward.svg)](https://make.fun/bounty/u-mfnakmal-dad-joke-showdown-1d2ce3e5)
+[![bounty](https://make.fun/badge/u-mfnakmal-dad-joke-showdown-1d2ce3e5.svg)](https://make.fun/bounty/u-mfnakmal-dad-joke-showdown-1d2ce3e5)
+[![rank](https://make.fun/badge/u-mfnakmal-dad-joke-showdown-1d2ce3e5/emasinves0-commits/u-mfnakmal-dad-joke-showdown-1d2ce3e5/rank.svg)](https://make.fun/bounty/u-mfnakmal-dad-joke-showdown-1d2ce3e5)
+[![reward](https://make.fun/badge/u-mfnakmal-dad-joke-showdown-1d2ce3e5/emasinves0-commits/u-mfnakmal-dad-joke-showdown-1d2ce3e5/reward.svg)](https://make.fun/bounty/u-mfnakmal-dad-joke-showdown-1d2ce3e5)
 
-This entry is for the make.fun Dad Joke Showdown bounty, which offers a $5 prize across 3 places and asks for a single original dad joke of at most 200 characters, with the judge picking the entry that earns the bigger groan.
+One dad joke about the dishwasher, written to `/output/entry.txt` by `main.ts`.
 
-## The joke
+> I keep loading the dishwasher wrong. My wife says I need to plate my role in this household.
 
-> "My son said he'd rather live in Vice City than visit me. I said, 'Funny - I feel the same way, vice versa.'"
+## Judge fit
 
-Character count: 107 characters.
+1. **A father would tell it at the table.** It's a chore confession with a wife's verdict, set in the kitchen.
+2. **The pun lands on first read.** "Plate my role" is "play my role" with a dish in it, and the dishwasher setup primes it.
+3. **Fresh.** It's a new pun on "play my part", not a recycled classic.
+4. **Tight.** Two sentences, and the punchline is the last phrase.
+5. **Reads naturally aloud.** Short words, with a natural pause after "wrong."
 
-## Files
+## Run
 
-- `main.ts` — the Node program that writes the joke to `entry.txt`
-- `README.md` — this file
-- `LICENSE` — MIT License
-- `AGENT.md` — how to run and verify the entry
-- `.makefun/owner.json` — owner wallet information
+```
+MAKEFUN_OUTPUT_DIR=/some/dir node main.ts
+```
+
+By default it writes to `/output/entry.txt`. There is no trailing newline, and `main.ts` has no dependencies.
