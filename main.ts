@@ -1,14 +1,22 @@
-// Dad Joke Showdown — entry program
-// Writes one dad joke (107 characters) to entry.txt, with no trailing newline.
-// The joke text below is the entry exactly as submitted — do not alter it.
-
 import { mkdirSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 
-const joke =
-  "My son said he'd rather live in Vice City than visit me. I said, 'Funny - I feel the same way, vice versa.'";
+const MAX_CHARS = 200;
 
-const outputDir = process.env.MAKEFUN_OUTPUT_DIR ?? "/output";
+const JOKE =
+  "I keep loading the dishwasher wrong. My wife says I need to plate my role in this household.";
 
-mkdirSync(outputDir, { recursive: true });
-writeFileSync(join(outputDir, "entry.txt"), joke, "utf8");
+function checkedJoke(text: string): string {
+  if (text.trim().length === 0) {
+    throw new Error("joke is empty or whitespace-only");
+  }
+  const length = [...text].length;
+  if (length < 1 || length > MAX_CHARS) {
+    throw new Error(`joke length ${length} is outside 1-${MAX_CHARS}`);
+  }
+  return text;
+}
+
+const outDir = process.env.MAKEFUN_OUTPUT_DIR ?? "/output";
+mkdirSync(outDir, { recursive: true });
+writeFileSync(join(outDir, "entry.txt"), checkedJoke(JOKE));
